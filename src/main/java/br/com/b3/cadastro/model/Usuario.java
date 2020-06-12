@@ -27,6 +27,16 @@ public class Usuario implements Serializable {
     @Column(name = "birthdate")
     private LocalDate birthdate;
 
+    public Usuario() {
+
+    }
+
+    public Usuario(Integer companyId, String email, LocalDate birthdate) {
+        this.companyId = companyId;
+        this.email = email;
+        this.birthdate = birthdate;
+    }
+
     public Integer getUserId() {
         return userId;
     }
