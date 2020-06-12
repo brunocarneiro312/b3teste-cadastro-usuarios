@@ -31,10 +31,13 @@ public class FileService {
     private static final String FILE_FOLDER = "app/files";
 
     @Autowired
-    ResourceLoader resourceLoader;
+    private ResourceLoader resourceLoader;
 
     @Autowired
-    UsuarioValidation usuarioValidation;
+    private UsuarioValidation usuarioValidation;
+
+    @Autowired
+    private UsuarioService usuarioService;
 
     /**
      * Realiza a leitura do arquivo de usuários
@@ -124,9 +127,14 @@ public class FileService {
 
             }
 
-
             // Cadastra usuários processados no banco
-            usuariosProcessados.forEach(System.out::println);
+            for (Usuario usuario : usuariosProcessados) {
+                Usuario u = new Usuario(
+                        usuario.getCompanyId(),
+                        usuario.getEmail(),
+                        usuario.getBirthdate());
+                this.usuarioService.save(u);
+            }
 
             // Marca o arquivo como processado alterando o seu sufixo para data e hora de processamento.
             String processDateTime = csv.getAbsolutePath() + LocalDateTime.now().toString();
