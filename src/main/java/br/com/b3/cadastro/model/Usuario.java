@@ -72,7 +72,7 @@ public class Usuario implements Serializable {
     @Override
     public String toString() {
         return "Usuario{" +
-                "userId=" + userId +
+                ( userId != null ? "userId=" + userId : "userId=<vazio>" ) +
                 ", companyId=" + companyId +
                 ", email='" + email + '\'' +
                 ", birthdate=" + birthdate +

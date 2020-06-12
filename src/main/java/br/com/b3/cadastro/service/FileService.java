@@ -118,7 +118,7 @@ public class FileService {
                 usuario.setBirthdate(LocalDate.parse(dados[2], formatter));
 
                 if (!usuarioValidation.validate(usuario)) {
-                    System.out.println("Erro ao processar usuário.");
+                    System.out.println("Erro ao processar usuário " + usuario.toString());
                     continue;
                 }
 

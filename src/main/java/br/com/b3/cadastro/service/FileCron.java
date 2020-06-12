@@ -1,8 +1,6 @@
 package br.com.b3.cadastro.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
@@ -20,8 +18,9 @@ public class FileCron {
     @Autowired
     private FileService fileService;
 
-//    @Scheduled(cron = "0/30 * * * * *")
+    @Scheduled(cron = "0/30 * * * * *")
     public void testCron() throws Exception {
+        System.out.println("Processando arquivos na pasta de entrada...");
         fileService.readFile();
     }
 }
