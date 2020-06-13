@@ -17,10 +17,7 @@ import java.util.List;
  * @author brunocarneiro
  */
 @RestController
-@RequestMapping(
-        value = "/usuario",
-        consumes = MediaType.APPLICATION_JSON_VALUE,
-        produces = MediaType.APPLICATION_JSON_VALUE)
+@RequestMapping(value = "/usuario")
 public class UsuarioApi {
 
     private UsuarioService usuarioService;
@@ -66,7 +63,7 @@ public class UsuarioApi {
      * -----------
      */
     @GetMapping("/email")
-    public ResponseEntity<List<Usuario>> findByCompanyId(@RequestBody String email) {
+    public ResponseEntity<List<Usuario>> findByCompanyId(@RequestParam String email) {
         try {
             return new ResponseEntity<>(this.usuarioService.findByEmail(email), HttpStatus.OK);
         }
