@@ -1,6 +1,7 @@
 # B3 Teste - Cadastro de Usuários
-
 Projeto para participação de processo seletivo.  
+
+![alt imagem](https://i.ibb.co/s6QMqBs/ss1.png)
 
 ### Backend
 - Java 8
@@ -59,3 +60,18 @@ http://localhost:8080/
 http://localhost:8080/swagger-ui-custom.html
 ```
 
+- Para acessar o banco de dados em memória (H2), basta acessar o endereço
+
+```
+http://localhost:8080/h2-console
+```
+
+Credenciais de acesso ao H2
+```
+Driver Class: org.h2.Driver
+JDBC URL: jdbc:h2:mem:testdb
+User Name: sa
+Password: <vazio>
+```
+
+![alt h2](https://i.ibb.co/nDYWkF5/s2.png)
