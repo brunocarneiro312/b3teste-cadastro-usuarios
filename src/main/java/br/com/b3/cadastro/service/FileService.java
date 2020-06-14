@@ -7,6 +7,7 @@ import org.springframework.core.io.Resource;
 import org.springframework.core.io.ResourceLoader;
 import org.springframework.stereotype.Service;
 
+import javax.swing.filechooser.FileSystemView;
 import java.io.BufferedReader;
 import java.io.File;
 import java.nio.file.Files;
@@ -28,7 +29,7 @@ import java.util.stream.Stream;
 @Service
 public class FileService {
 
-    private static final String FILE_FOLDER = "app/files";
+    private static final String FILE_FOLDER = FileSystemView.getFileSystemView().getHomeDirectory() + "/app/files";
 
     @Autowired
     private ResourceLoader resourceLoader;
@@ -44,11 +45,10 @@ public class FileService {
      */
     public void readFile() throws Exception {
 
-        // Obtém diretório onde os arquivos estão contidos
-        Resource resource = resourceLoader.getResource("classpath:" + FILE_FOLDER);
+        File appFolder = new File(FILE_FOLDER);
 
         // Utilizando "try with resources" para tentar ler o conteúdo da pasta
-        try (Stream<Path> walk = Files.walk(Paths.get(resource.getURI()))) {
+        try (Stream<Path> walk = Files.walk(Paths.get(appFolder.toURI()))) {
 
             // Armazenando os nomes dos arquivos contidos na pasta.
             List<String> nomeDosArquivos = walk.filter(Files::isRegularFile)
