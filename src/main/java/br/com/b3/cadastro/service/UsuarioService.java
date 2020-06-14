@@ -28,6 +28,22 @@ public class UsuarioService {
     }
 
     /**
+     * Busca todos os usuários cadastrados
+     *
+     * @return
+     *      Lista contendo todos os usuários cadastrados
+     * @throws Exception
+     */
+    public List<Usuario> findAll() throws Exception {
+        try {
+            return this.usuarioRepository.findAll();
+        }
+        catch (Exception e) {
+            throw new Exception(e);
+        }
+    }
+
+    /**
      * Realiza a persistência de um usuário
      *
      * @param usuario

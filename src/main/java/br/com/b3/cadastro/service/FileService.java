@@ -93,7 +93,9 @@ public class FileService {
      * @throws Exception
      *      Exceção genérica a ser lançada para o método chamador em caso de erro
      */
-    private List<Usuario> processFile(File csv) throws Exception {
+    public List<Usuario> processFile(File csv) throws Exception {
+
+        System.out.println("Processando arquivo: " + csv.getName() + " [" + LocalDateTime.now() + "]");
 
         List<Usuario> usuariosProcessados = new ArrayList<>();
 

@@ -20,7 +20,6 @@ public class FileCron {
 
     @Scheduled(cron = "0/30 * * * * *")
     public void testCron() throws Exception {
-        System.out.println("Processando arquivos na pasta de entrada...");
         fileService.readFile();
     }
 }
