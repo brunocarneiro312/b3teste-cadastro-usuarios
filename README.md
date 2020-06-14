@@ -76,3 +76,6 @@ Password: <vazio>
 ```
 
 ![alt h2](https://i.ibb.co/nDYWkF5/s2.png)
+
+## Considerações Finais
+Embora seja uma boa prática apartar o backend do frontend em projetos diferentes, julguei melhor realizar o build do frontend e servi-lo como um recurso estático no backend, tornando uma aplicação monolítica por motivos de praticidade.
